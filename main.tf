@@ -19,4 +19,7 @@ resource "github_repository" "repos" {
   visibility  = "private" # or "public"
   description = "Terraform-managed repository: ${each.value}"
   auto_init   = true
+
+  # Behavior on destroy: archive or delete
+  archive_on_destroy = var.safe_destroy
 }
