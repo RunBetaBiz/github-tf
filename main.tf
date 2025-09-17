@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "github" {
-  token = var.github_token
+  # Token is picked up automatically from the GITHUB_TOKEN environment variable
   owner = var.github_owner
 }
 
@@ -16,7 +16,7 @@ resource "github_repository" "repos" {
   for_each = toset(var.repositories)
 
   name        = each.value
-  visibility  = "private" # change to "public" if needed
+  visibility  = "private" # or "public"
   description = "Terraform-managed repository: ${each.value}"
   auto_init   = true
 }
