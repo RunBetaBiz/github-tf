@@ -16,9 +16,18 @@ variable "repositories" {
 
 variable "safe_destroy" {
   description = <<EOT
-If true, repositories will be archived instead of deleted when removed from the list.
-If false, repositories will be PERMANENTLY deleted (nuked).
+If true, repositories removed from the list will be archived (safe).
+If false, repositories removed will be permanently deleted (nuked).
 EOT
   type    = bool
   default = true
+}
+
+variable "protected_repos" {
+  description = "List of repos that can never be destroyed, even if safe_destroy = false"
+  type        = list(string)
+  default     = [
+    "infra-core", 
+    "ml-core"
+  ]
 }
