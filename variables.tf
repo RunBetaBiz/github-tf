@@ -1,6 +1,7 @@
 variable "github_owner" {
   description = "The GitHub organization or username"
   type        = string
+  default     = "RunBetaBiz"
 }
 
 variable "repositories" {
@@ -8,7 +9,5 @@ variable "repositories" {
   type        = list(string)
   default     = [
     "repo-one",
-    "repo-two",
-    "repo-three"
   ]
 }
