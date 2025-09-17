@@ -24,8 +24,5 @@ EOT
 variable "protected_repos" {
   description = "List of repos that can never be destroyed, even if safe_destroy = false"
   type        = list(string)
-  default     = [
-    "infra-core",
-    "ml-core"
-  ]
+  default     = []
 }
